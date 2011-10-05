@@ -5,7 +5,7 @@ NewQuickAction3D is a small android library to show quickaction dialog just like
 
 **See http://www.londatiga.net/it/how-to-create-quickaction-dialog-in-android/ for more information.**
 
-![Example Image] [1]
+![Example Image] [2]
 
 Developed By
 ============
@@ -17,7 +17,7 @@ Changes
 
 2011-10-05:
 - Fix force close that occured when tapping randomly on a view to show quickaction dialog. 
-  Thanx to [Zammbi][2] for bug fix..
+  Thanx to [Zammbi][1] for bug fix..
 
 [1]: http://github.com/zammbi
 [2]: http://londatiga.net/images/quickactions/gl3d2.jpg
