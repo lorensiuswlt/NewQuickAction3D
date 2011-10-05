@@ -69,6 +69,11 @@ public class QuickAction extends PopupWindows {
 
 		mScroller	= (ScrollView) mRootView.findViewById(R.id.scroller);
 		
+		//This was previously defined on show() method, moved here to prevent force close that occured
+		//when tapping fastly on a view to show quickaction dialog.
+		//Thanx to zammbi (github.com/zammbi)
+		mRootView.setLayoutParams(new LayoutParams(LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT));
+		
 		setContentView(mRootView);
 	}
 	
@@ -150,7 +155,8 @@ public class QuickAction extends PopupWindows {
 		Rect anchorRect 	= new Rect(location[0], location[1], location[0] + anchor.getWidth(), location[1] 
 		                	+ anchor.getHeight());
 
-		mRootView.setLayoutParams(new LayoutParams(LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT));
+		//mRootView.setLayoutParams(new LayoutParams(LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT));
+		
 		mRootView.measure(LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT);
 	
 		int rootHeight 		= mRootView.getMeasuredHeight();
