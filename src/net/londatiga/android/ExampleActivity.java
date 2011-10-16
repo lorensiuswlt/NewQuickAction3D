@@ -61,11 +61,17 @@ public class ExampleActivity extends Activity {
         //Set listener for action item clicked
 		quickAction.setOnActionItemClickListener(new QuickAction.OnActionItemClickListener() {			
 			@Override
-			public void onItemClick(QuickAction source, int pos, int actionId) {
-				//here we can filter which action item was clicked with pos or actionId parameter
+			public void onItemClick(QuickAction source, int pos, int actionId) {				
 				ActionItem actionItem = quickAction.getActionItem(pos);
                  
-				Toast.makeText(getApplicationContext(), actionItem.getTitle() + " selected", Toast.LENGTH_SHORT).show();			    
+				//here we can filter which action item was clicked with pos or actionId parameter
+				if (actionId == ID_SEARCH) {
+					Toast.makeText(getApplicationContext(), "Let's do some search action", Toast.LENGTH_SHORT).show();
+				} else if (actionId == ID_INFO) {
+					Toast.makeText(getApplicationContext(), "I have no info this time", Toast.LENGTH_SHORT).show();
+				} else {
+					Toast.makeText(getApplicationContext(), actionItem.getTitle() + " selected", Toast.LENGTH_SHORT).show();
+				}
 			}
 		});
 		
