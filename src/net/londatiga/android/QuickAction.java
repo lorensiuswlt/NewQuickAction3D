@@ -282,7 +282,7 @@ public class QuickAction extends PopupWindows implements OnDismissListener {
 			
 			if (rootHeight > dyBottom) { 
 				LayoutParams l 	= mScroller.getLayoutParams();
-				l.height		= dyBottom;
+				l.height        = dyBottom - mArrowDown.getMeasuredHeight() - mArrowUp.getMeasuredHeight();
 			}
 		}
 		
