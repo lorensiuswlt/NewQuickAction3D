@@ -208,6 +208,17 @@ public class QuickAction extends PopupWindows implements OnDismissListener {
             mTrack.addView(separator, mInsertPos);
             
             mInsertPos++;
+        } else if (mOrientation == VERTICAL && mChildPos != 0) {
+        	View separator = mInflater.inflate(R.layout.vertical_separator, null);
+        	
+        	LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(LayoutParams.MATCH_PARENT, LayoutParams.WRAP_CONTENT);
+        	
+        	separator.setLayoutParams(params);
+        	separator.setPadding(0, 1, 0, 1);
+        	
+        	mTrack.addView(separator, mInsertPos);
+        	
+        	mInsertPos++;
         }
 		
 		mTrack.addView(container, mInsertPos);
