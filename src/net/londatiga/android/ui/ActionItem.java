@@ -1,4 +1,4 @@
-package net.londatiga.android;
+package net.londatiga.android.ui;
 
 import android.graphics.drawable.Drawable;
 import android.graphics.Bitmap;
