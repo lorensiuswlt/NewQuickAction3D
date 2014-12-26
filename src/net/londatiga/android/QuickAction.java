@@ -247,24 +247,22 @@ public class QuickAction extends PopupWindows implements OnDismissListener {
 		int screenWidth 	= mWindowManager.getDefaultDisplay().getWidth();
 		int screenHeight	= mWindowManager.getDefaultDisplay().getHeight();
 		
-		//automatically get X coord of popup (top left)
-		if ((anchorRect.left + rootWidth) > screenWidth) {
-			xPos 		= anchorRect.left - (rootWidth-anchor.getWidth());			
-			xPos 		= (xPos < 0) ? 0 : xPos;
-			
-			arrowPos 	= anchorRect.centerX()-xPos;
-			
-		} else {
-			if (anchor.getWidth() > rootWidth) {
-				xPos = anchorRect.centerX() - (rootWidth/2);
-			} else {
-				xPos = anchorRect.left;
-			}
-			
-			arrowPos = anchorRect.centerX()-xPos;
-		}
-		
-		int dyTop			= anchorRect.top;
+		// //automatically get X coord of popup (top left)
+		int leftX = anchorRect.centerX() - rootWidth / 2;
+	        int rightX = anchorRect.centerX() + rootWidth / 2;
+	
+	        if (leftX >= 0) {// enough space for left
+	            if (rightX <= screenWidth) { // enough space for right
+	                xPos = leftX;
+	            } else {
+	                xPos = screenWidth - rootWidth - 5;//magin right 5.
+	            }
+	        } else {
+	            xPos = 5;// magin left 5
+	        }
+	        arrowPos = anchorRect.centerX() - xPos;
+        
+		int dyTop		= anchorRect.top;
 		int dyBottom		= screenHeight - anchorRect.bottom;
 
 		boolean onTop		= (dyTop > dyBottom) ? true : false;
